@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <h1 id="question"></h1>
+        <br></br>
+        <h2 id="answer"></h2>
+        <br></br>
+        <button id="show-answer">Show Answer</button><button id="next">Next</button>
+    </div>
+    <script>
+        let questions = [
+            "Who is President of India ?",
+            "who is Prime Minister Of India ?",
+            "who is Gandhi ?",
+            "where is Nepal ?"
+        ];
+
+        let answers = [
+            "Murmu",
+            "Modi",
+            "freedom fighter",
+            "Asia"
+        ]
+        
+        let index = 0;
+
+        
+
+        document.getElementById("show-answer").addEventListener("click", function(){
+
+            showAnswer();
+        })
+
+        document.getElementById("next").addEventListener("click", function(){
+            index++;
+            if(index > answers.length-1){
+                index = 0;
+            }
+            nextQuestion();
+        })
+
+        function showAnswer(){
+            document.getElementById("answer").innerText = answers[index];
+        }
+
+        function nextQuestion(){
+            document.getElementById("answer").innerText = "";
+            document.getElementById("question").innerText = questions[index];
+        }
+        nextQuestion();
+    </script>
+</body>
+</html>
